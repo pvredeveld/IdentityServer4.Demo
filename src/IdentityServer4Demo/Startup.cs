@@ -34,7 +34,8 @@ namespace IdentityServer4Demo
 
             services.AddTransient<IRedirectUriValidator, DemoRedirectValidator>();
             services.AddTransient<ICorsPolicyService, DemoCorsPolicy>();
-
+            builder.AddTemporarySigningCredential();
+/*
             if (_env.IsDevelopment())
             {
                 builder.AddTemporarySigningCredential();
@@ -42,7 +43,9 @@ namespace IdentityServer4Demo
             else
             {
                 builder.AddSigningCredential("98D3ACF057299C3745044BE918986AD7ED0AD4A2", StoreLocation.CurrentUser, nameType: NameType.Thumbprint);
+                
             }
+            */
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
